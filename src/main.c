@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <string.h>
+#include "parse_buffer.h"
 
 #define BUFFER_SIZE 1024
 
@@ -13,8 +14,9 @@ int main(int argc, char** argv) {
         printf("> $ ");
         fgets(buffer, BUFFER_SIZE, stdin);
         
-        shell_parse_buffer(buffer);
-        
+        if (parse_buffer(buffer)) 
+            break;
+
         memset(buffer, '\0', BUFFER_SIZE);
     }
 

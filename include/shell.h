@@ -1,6 +1,6 @@
 #ifndef SHELL
 #define SHELL
 
-void nothing();
+int shell_parse_buffer(char* buffer);
 
 #endif
