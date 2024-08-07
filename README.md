@@ -9,3 +9,6 @@ cd scripts
 ./debug.sh (for a debug build)
 ./release.sh (for a release build)
 ```
+
+The project will build into a single file called shell_exec <br />
+shell_exec is located in /build/src <br />
