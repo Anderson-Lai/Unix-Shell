@@ -19,6 +19,8 @@ int main(int argc, char** argv) {
 
         memset(buffer, '\0', BUFFER_SIZE);
     }
+    
+    printf("Exiting shell\n");
 
     return 0;
 }

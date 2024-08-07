@@ -15,5 +15,6 @@ if (CMAKE_C_COMPILER_ID STREQUAL "GNU" OR CMAKE_C_COMPILER_ID STREQUAL "Clang")
         $<$<CONFIG:Debug>:"-g -fsanitize=address">
         $<$<CONFIG:Release>:"">
     )
-
+else()
+    message(FATAL_ERROR "Your compiler is not supported")
 endif()
