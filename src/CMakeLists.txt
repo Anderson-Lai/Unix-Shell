@@ -7,6 +7,7 @@ add_executable(${PROJECT_NAME}
     "${CMAKE_CURRENT_SOURCE_DIR}/shell.c"
     "${CMAKE_CURRENT_SOURCE_DIR}/parse.c"
     "${CMAKE_CURRENT_SOURCE_DIR}/vector.c"
+    "${CMAKE_CURRENT_SOURCE_DIR}/str.c"
 )
 
 target_include_directories(${PROJECT_NAME} PRIVATE "${CMAKE_SOURCE_DIR}/include")

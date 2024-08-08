@@ -4,30 +4,9 @@
 
 #define BUFFER_SIZE 1024
 
-#ifndef DEBUG_VECTOR
-int main(int argc, char** argv) {
+#define DEBUG_STRING
 
-    printf("This is an implementation of a Unix shell in C\n");
-    
-    char buffer[BUFFER_SIZE] = {};
-    
-    while (1) {
-        printf("> $ ");
-        fgets(buffer, BUFFER_SIZE, stdin);
-        
-        if (parse_buffer(buffer)) 
-            break;
-
-        memset(buffer, '\0', BUFFER_SIZE);
-    }
-    
-    printf("Exiting shell\n");
-
-    return 0;
-}
-
-#else
-
+#ifdef DEBUG_VECTOR
 #include "vector.h"
 #include <stdlib.h>
 
@@ -75,4 +54,55 @@ int main() {
 
     return 0;
 }
+
+#elif defined(DEBUG_STRING)
+#include "str.h"
+
+int main(int argc, char** argv) {
+    
+    String str = string_create("i want to fly");
+    string_append(&str, " no you can't");
+    
+    string_print(str);
+    
+    string_pop_back(&str);
+    string_pop_back(&str);
+    string_pop_back(&str);
+    string_pop_back(&str);
+    string_pop_back(&str);
+
+    printf("%c\n", *string_at(str, 2));
+    printf("%zu\n", string_size(str));
+    string_print(str);
+
+    string_append(&str, " abcd\n");
+    string_print(str);
+
+    string_delete(&str);
+    return 0;
+}
+
+#else
+
+int main(int argc, char** argv) {
+
+    printf("This is an implementation of a Unix shell in C\n");
+    
+    char buffer[BUFFER_SIZE] = {};
+    
+    while (1) {
+        printf("> $ ");
+        fgets(buffer, BUFFER_SIZE, stdin);
+        
+        if (parse_buffer(buffer)) 
+            break;
+
+        memset(buffer, '\0', BUFFER_SIZE);
+    }
+    
+    printf("Exiting shell\n");
+
+    return 0;
+}
 #endif
+
