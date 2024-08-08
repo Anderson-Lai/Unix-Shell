@@ -1,6 +1,6 @@
 #include "shell.h"
 
-int shell_parse_buffer(char* buffer) {
+int shell_execute(char* buffer) {
 
     return 0;
 }

@@ -1,4 +1,4 @@
-#include "parse_buffer.h"
+#include "parse.h"
 #include "shell.h"
 #include <string.h>
 #include <ctype.h>
@@ -8,17 +8,17 @@
 #define BUFFER_SIZE 1024
 
 int parse_buffer(char* buffer) {
-    char* cleaned = clean_buffer(buffer);
-    
+    char* cleaned = parse_clean_buffer(buffer);
+
     printf("%s\n", cleaned);
     size_t length = strlen(cleaned);
     if (isspace((unsigned int)cleaned[length - 1]))
         printf("Improper parsing, the command has terminating whitespace\n");
 
-    return shell_parse_buffer(cleaned);
+    return shell_execute(cleaned);
 }
 
-char* clean_buffer(char* buffer) {
+char* parse_clean_buffer(char* buffer) {
     size_t length = strlen(buffer);
     
     char* cleaned = (char*)calloc(BUFFER_SIZE, sizeof(char));
