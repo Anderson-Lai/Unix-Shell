@@ -34,7 +34,7 @@ char* parse_clean_buffer(char* buffer) {
         end--;
     }
 
-    strncpy(cleaned, &(buffer[start]), end - start + 1);
+    strncpy(cleaned, buffer + start, end - start + 1);
 
     return cleaned;
 }

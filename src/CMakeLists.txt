@@ -5,8 +5,8 @@ project(shell_exec C)
 add_executable(${PROJECT_NAME}
     #"${CMAKE_SOURCE_DIR}/tests/vector_tests.c"
     #"${CMAKE_SOURCE_DIR}/tests/string_tests.c"
-    
     "${CMAKE_CURRENT_SOURCE_DIR}/main.c"
+
     "${CMAKE_CURRENT_SOURCE_DIR}/shell.c"
     "${CMAKE_CURRENT_SOURCE_DIR}/parse.c"
     "${CMAKE_CURRENT_SOURCE_DIR}/vector.c"
